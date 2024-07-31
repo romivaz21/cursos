@@ -1,0 +1,69 @@
+<!-- cursosapp/templates/cursosapp/base.html -->
+{% load static %} 
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}Mi Aplicación{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+
+
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        header {
+            background-color: #f8f9fa;
+            padding: 10px;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+            font-size: small
+        }
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>Aplicacion Cursos</h1>
+        <nav>
+            <ul>
+                <!-- <li><a href="{% url 'pagina_principal' %}">Inicio</a></li> -->
+                <li><a href="{% url 'lista_profesores' %}">Lista de Profesores</a></li>
+                <li><a href="{% url 'lista_estudiantes' %}">Lista de Estudiantes</a></li>
+                <li><a href="{% url 'lista_cursos' %}">Lista de Cursos</a></li>
+                <li><a href="{% url 'insertar_profesor' %}">Insertar Profesor</a></li>
+                <li><a href="{% url 'insertar_estudiante' %}">Insertar Estudiante</a></li>
+                <li><a href="{% url 'insertar_curso' %}">Insertar Curso</a></li>
+                <li><a href="{% url 'buscar_cursos' %}">Buscar Cursos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    
+    <img src="{% static 'imagenes/imagen1.jpg' %}" style="width: 100%; height:250px;">
+    
+  
+    <main>
+        {% block content %}
+        <!-- Contenido específico de cada página -->
+        {% endblock %}
+    </main>
+    <footer>
+        <p>&copy; 2024 Mi Aplicación</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,20 @@
+{% extends 'cursosapp/base.html' %}
+
+{% block title %}Lista de Cursos{% endblock %}
+
+{% block content %}
+    <h2>Lista de Cursos</h2>
+    <ul>
+        {% for curso in cursos %}
+            <li><a href="{% url 'detalle_curso' curso.pk %}">{{ curso.nombre }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+
+
+
+
+
+
+
+

@@ -1,0 +1,25 @@
+
+
+{% extends 'cursosapp/base.html' %}
+
+{% block title %}Buscar Cursos{% endblock %}
+
+{% block content %}
+    <h2>Buscar Cursos</h2>
+    <form method="get" action="{% url 'buscar_cursos' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Buscar</button>
+    </form>
+
+    {% if cursos %}
+        <h3>Resultados:</h3>
+        <ul>
+            {% for curso in cursos %}
+                <li>{{ curso.nombre }} - {{ curso.descripcion }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No se encontraron cursos que coincidan con la búsqueda.</p>
+    {% endif %}
+{% endblock %}

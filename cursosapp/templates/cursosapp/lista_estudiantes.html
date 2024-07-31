@@ -1,0 +1,14 @@
+
+
+{% extends 'cursosapp/base.html' %}
+
+{% block title %}Lista de Estudiantes{% endblock %}
+
+{% block content %}
+    <h2>Lista de Estudiantes</h2>
+    <ul>
+        {% for estudiante in estudiantes %}
+        <li><a href="{% url 'detalle_estudiante' estudiante.pk %}">{{ estudiante.nombre }} {{ estudiante.apellido }}</a></li>
+    {% endfor %}
+    </ul>
+{% endblock %}

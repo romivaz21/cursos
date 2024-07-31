@@ -1,0 +1,16 @@
+
+{% extends 'cursosapp/base.html' %}
+
+{% block title %}Lista de Profesores{% endblock %}
+
+{% block content %}
+    <h2>Lista de Profesores</h2>
+    <ul>
+        {% for profesor in profesores %}
+            <li><a href="{% url 'detalle_profesor' profesor.pk %}">{{ profesor.nombre }} {{ profesor.apellido }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+
+
+

@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Detalle del Profesor</title>
+</head>
+<body>
+    <h1>{{ profesor.nombre }} {{ profesor.apellido }}</h1>
+    <p>Email: {{ profesor.email }}</p>
+    <a href="{% url 'lista_profesores' %}">Volver a la lista de profesores</a>
+</body>
+</html>

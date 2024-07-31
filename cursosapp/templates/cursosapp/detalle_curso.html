@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Detalle del Curso</title>
+</head>
+<body>
+    <h1>{{ curso.nombre }}</h1>
+    <p>{{ curso.descripcion }}</p>
+    <p>Profesor: <a href="{% url 'detalle_profesor' curso.profesor.pk %}">{{ curso.profesor.nombre }} {{ curso.profesor.apellido }}</a></p>
+    <h2>Estudiantes</h2>
+    <ul>
+        {% for estudiante in curso.estudiantes.all %}
+            <li><a href="{% url 'detalle_estudiante' estudiante.pk %}">{{ estudiante.nombre }} {{ estudiante.apellido }}</a></li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'lista_cursos' %}">Volver a la lista de cursos</a>
+</body>
+</html>
+
+
+
+
+
+{% extends 'cursosapp/base.html' %}
+
+{% block title %}Lista de Estudiantes{% endblock %}
+
+{% block content %}
+    <h2>Lista de Estudiantes</h2>
+    <ul>
+        {% for estudiante in estudiantes %}
+        <li><a href="{% url 'detalle_estudiante' estudiante.pk %}">{{ estudiante.nombre }} {{ estudiante.apellido }}</a></li>
+    {% endfor %}
+    </ul>
+{% endblock %}
+
+
+
+

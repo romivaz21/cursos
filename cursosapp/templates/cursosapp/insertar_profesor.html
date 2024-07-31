@@ -1,0 +1,14 @@
+
+{% extends 'cursosapp/base.html' %}
+
+{% block title %}Insertar Profesor{% endblock %}
+
+{% block content %}
+    <h2>Insertar Profesor</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Guardar</button>
+    </form>
+    <a href="{% url 'lista_profesores' %}">Volver a la lista de profesores</a>
+{% endblock %}
